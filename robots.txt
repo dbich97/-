@@ -1,0 +1,37 @@
+# ===================================================================
+# robots.txt file for your website
+# Generated on: [DATE]
+# ===================================================================
+
+# Allow all reputable search engines full access to the site content.
+User-agent: *
+Allow: /
+
+# Disallow access to directories that are not useful for search engines
+# and may contain sensitive information.
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /my-account/
+
+# Disallow common CMS directories to prevent indexing unnecessary backend files.
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+
+# Disallow search result pages to prevent duplicate content issues.
+Disallow: /search/
+Disallow: /*?s=
+Disallow: /*&s=
+
+# Explicitly allow Google AdsBot to crawl all pages.
+# This is crucial for Google AdSense policy compliance and ad serving.
+User-agent: AdsBot-Google
+Allow: /
+
+# Provide the location of the XML sitemap.
+# IMPORTANT: Replace 'https://www.VilaMe.com' with your actual domain name.
+Sitemap: https://www.VilaMe.com/sitemap.xml

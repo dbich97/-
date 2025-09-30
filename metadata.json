@@ -1,0 +1,5 @@
+{
+  "name": "كم عمري؟ (How Old Am I?)",
+  "description": "تطبيق ويب بسيط يسمح للمستخدم بإدخال تاريخ ميلاده ويحسب عمره بدقة بالسنوات والأشهر والأيام. (A simple web application that allows the user to enter their date of birth and accurately calculates their age in years, months, and days.)",
+  "requestFramePermissions": []
+}
