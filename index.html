@@ -10,13 +10,31 @@
     <meta name="description" content="احسب عمرك بالميلادي والهجري بسهولة مع أداتنا البسيطة – أداة كم عمري الآن." />
     <meta name="keywords" content="كم عمري, حاسبة العمر, العمر بالهجري, العمر بالميلادي, حساب العمر بدقة" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Performance: Preconnect to required origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://aistudiocdn.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
+    <!-- Performance: Load fonts asynchronously -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Performance: Critical inline CSS for fast first paint -->
     <style>
       body {
         font-family: 'Tajawal', sans-serif;
+        background-image: linear-gradient(to bottom right, #f0f9ff, #e0e7ff);
+        margin: 0;
+      }
+      /* Mimic the main layout from App.tsx to prevent layout shifts */
+      #root > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100vh;
+        padding: 1rem;
       }
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
@@ -36,9 +54,11 @@
 }
 </script>
 </head>
-<body class="bg-gradient-to-br from-sky-50 to-indigo-100">
+<body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+    <!-- Performance: Defer Tailwind CSS to make it non-blocking -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
 </body>
 </html>
