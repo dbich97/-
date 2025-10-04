@@ -12,29 +12,20 @@ interface Age {
   nextBirthdayCountdown: number | null;
 }
 
-const getZodiacSign = (day: number, month: number) => {
-    const signs = [
-        { name: 'الجدي', emoji: '♑', start: [12, 22] }, { name: 'الدلو', emoji: '♒', start: [1, 20] },
-        { name: 'الحوت', emoji: '♓', start: [2, 19] }, { name: 'الحمل', emoji: '♈', start: [3, 21] },
-        { name: 'الثور', emoji: '♉', start: [4, 20] }, { name: 'الجوزاء', emoji: '♊', start: [5, 21] },
-        { name: 'السرطان', emoji: '♋', start: [6, 21] }, { name: 'الأسد', emoji: '♌', start: [7, 23] },
-        { name: 'العذراء', emoji: '♍', start: [8, 23] }, { name: 'الميزان', emoji: '♎', start: [9, 23] },
-        { name: 'العقرب', emoji: '♏', start: [10, 23] }, { name: 'القوس', emoji: '♐', start: [11, 22] }
-    ];
-    // This logic correctly finds the zodiac sign based on start dates.
-    const monthDay = month * 100 + day;
-    if (monthDay >= 120) return signs[1]; // Aquarius
-    if (monthDay >= 219) return signs[2]; // Pisces
-    if (monthDay >= 321) return signs[3]; // Aries
-    if (monthDay >= 420) return signs[4]; // Taurus
-    if (monthDay >= 521) return signs[5]; // Gemini
-    if (monthDay >= 621) return signs[6]; // Cancer
-    if (monthDay >= 723) return signs[7]; // Leo
-    if (monthDay >= 823) return signs[8]; // Virgo
-    if (monthDay >= 923) return signs[9]; // Libra
-    if (monthDay >= 1023) return signs[10]; // Scorpio
-    if (monthDay >= 1122) return signs[11]; // Sagittarius
-    return signs[0]; // Capricorn for Jan 1-19 and Dec 22-31
+const getZodiacSign = (day: number, month: number): Zodiac => {
+    if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return { name: 'الحمل', emoji: '♈' };
+    if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return { name: 'الثور', emoji: '♉' };
+    if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return { name: 'الجوزاء', emoji: '♊' };
+    if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return { name: 'السرطان', emoji: '♋' };
+    if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return { name: 'الأسد', emoji: '♌' };
+    if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return { name: 'العذراء', emoji: '♍' };
+    if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return { name: 'الميزان', emoji: '♎' };
+    if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return { name: 'العقرب', emoji: '♏' };
+    if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return { name: 'القوس', emoji: '♐' };
+    if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return { name: 'الجدي', emoji: '♑' };
+    if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return { name: 'الدلو', emoji: '♒' };
+    // Pisces: Feb 19 - Mar 20
+    return { name: 'الحوت', emoji: '♓' };
 };
 
 
